@@ -1,9 +1,9 @@
-import DailyStat from './DailyStat';
+import CovidStat from './CovidStat';
 
 function App() {
   return (
     <div className="App">
-      <DailyStat />
+      <CovidStat />
     </div>
   );
 }
