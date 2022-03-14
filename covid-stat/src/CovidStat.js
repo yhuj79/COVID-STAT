@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import CovidStatGraph from './CovidStatGraph';
+import GraphDaily from './GraphDaily';
 import moment from 'moment';
 
 const serviceKey = "PDQhKwjgEGznnLng2oat2Q5kYgA%2BIj6fx%2BN1FXppnbqJ9wR2x26%2BQ7gnH7RLePFK27SPRF5F1pllsDQj4nXa%2Fg%3D%3D";
@@ -37,9 +37,8 @@ function CovidStat() {
 
     return (
         <div>
-            <h1>{termB} + 1</h1>
-            <h1>{termA}</h1>
-            <CovidStatGraph stat={stat} />
+            <h1>Covid-19 Graph</h1>
+            <GraphDaily stat={stat} />
         </div>
     );
 }
