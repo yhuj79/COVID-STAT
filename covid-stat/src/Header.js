@@ -8,11 +8,11 @@ function Header() {
         fontFamily: 'Sunflower',
         textDecoration: 'none',
         padding: '12px 15px 10px',
-        fontSize: '22px',
+        margin: '0 3px 0',
+        fontSize: isActive ? '25px' : '22px',
         fontWeight: 'bold',
-        color: isActive ? '#232323' : '#4C4C4C',
-        backgroundColor: isActive ? '#F9F9F9' : '#EAEAEA',
-        opacity: isActive ? '1' : '0.9',
+        color: isActive ? '#232323' : '#8C8C8C',
+        backgroundColor: isActive ? '#F4F4F4' : '#E4E4E4',
         borderTopLeftRadius: '10px',
         borderTopRightRadius: '10px',
     })
@@ -23,18 +23,21 @@ function Header() {
             <StyledDiv>
                 <NavLink to="/" style={NavStyle}>확진 추이</NavLink>
                 <NavLink to="/deathDaily" style={NavStyle}>사망 추이</NavLink>
+                <NavLink to="/decidecumulative" style={NavStyle}>누적 확진</NavLink>
+                <NavLink to="/deathcumulative" style={NavStyle}>누적 사망</NavLink>
             </StyledDiv>
         </div>
     );
 }
 const Title = styled.p`
     text-align: center;
-    font-size: 45px;
+    font-size: 60px;
     font-weight: bold;
-    font-family: "Hahmlet";
-    background-color: #FFE08C;
+    font-family: "Jua";
+    background-color: #FFEAEA;
+    color: #815A5A;
     margin: auto auto 30px;
-    padding: 15px;
+    padding: 40px;
 `
 const StyledDiv = styled.div`
     display: flex;

@@ -5,7 +5,7 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 function DecideDaily({ stat }) {
-    console.log(stat);
+
     function date(d) {
         return stat[d].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1.$2');
     }
@@ -89,12 +89,12 @@ const TodayTitle = styled.p`
     }
 `
 const StyledDiv = styled.div`
-    background-color: #F9F9F9;
+    background-color: #F4F4F4;
     width: 1200px;
     margin: auto;
-    margin-top: -5px;
+    margin-top: -3px;
     padding: 0 30px 30px;
-    border: 5px solid #EAEAEA;
+    border: 3px solid #E4E4E4;
     border-radius: 15px;
 
     @media screen and (max-width:767px) {

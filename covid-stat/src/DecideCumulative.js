@@ -4,13 +4,13 @@ import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-function DeathDaily({ stat }) {
+function DecideCumulative({ stat }) {
 
     function date(d) {
         return stat[d].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1.$2');
     }
     function cnt(d) {
-        return stat[d].deathCnt - stat[d + 1].deathCnt;
+        return stat[d].decideCnt;
     }
 
     const data = {
@@ -21,10 +21,10 @@ function DeathDaily({ stat }) {
         datasets: [
             {
                 type: 'bar',
-                label: '일일 사망자',
-                backgroundColor: '#4C4C4C',
+                label: '누적',
+                backgroundColor: '#99004C',
                 borderWidth: 3,
-                borderColor: '#828282',
+                borderColor: '#BD2470',
                 borderRadius: 15,
                 data: [
                     cnt(13), cnt(12), cnt(11), cnt(10), cnt(9), cnt(8), cnt(7),
@@ -46,7 +46,7 @@ function DeathDaily({ stat }) {
                 bodySpacing: 5,
             }
         },
-        scales: { // X , Y
+        scales: {
             yAxes: {
                 ticks: {
                     color: "#000",
@@ -66,7 +66,7 @@ function DeathDaily({ stat }) {
     return (
         <StyledDiv>
             <TodayTitle>
-                {stat[0].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 사망자
+                {stat[0].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 누적 확진자
                 <span> {cnt(0).toLocaleString('en')}</span>명
             </TodayTitle>
             <Bar type="bar"
@@ -101,4 +101,4 @@ const StyledDiv = styled.div`
         width: 99%;
     }
 `
-export default DeathDaily;
+export default DecideCumulative;

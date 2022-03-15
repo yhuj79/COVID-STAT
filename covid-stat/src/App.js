@@ -2,10 +2,15 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import moment from 'moment';
+
+import Loader from './Loader';
+import Header from './Header';
 import DecideDaily from './DecideDaily';
 import DeathDaily from './DeathDaily';
-import Header from './Header';
-import moment from 'moment';
+import DecideCumulative from './DecideCumulative';
+import DeathCumulative from './DeathCumulative';
+import Source from './Source';
 
 // date
 const format = "YYYYMMDD";
@@ -34,7 +39,7 @@ function App() {
   }, [])
 
   if (loading) {
-    return <p>Loading...</p>
+    return <Loader />
   }
   if (!stat) {
     return null;
@@ -46,8 +51,11 @@ function App() {
         <Header />
         <Routes>
           <Route exact path="/" element={<DecideDaily stat={stat} />} />
-          <Route path="/deathDaily" element={<DeathDaily stat={stat} />} />
+          <Route path="/deathdaily" element={<DeathDaily stat={stat} />} />
+          <Route path="/decidecumulative" element={<DecideCumulative stat={stat} />} />
+          <Route path="/deathcumulative" element={<DeathCumulative stat={stat} />} />
         </Routes>
+        <Source />
       </div>
     </Router>
   );
