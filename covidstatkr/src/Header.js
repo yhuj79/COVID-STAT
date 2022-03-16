@@ -57,7 +57,6 @@ const Title = styled.p`
     color: #815A5A;
     margin: auto auto 30px;
     padding: 40px;
-
     @media screen and (min-width:768px) and (max-width: 1023px) {
         font-size: 50px;
     }
@@ -70,14 +69,12 @@ const Title = styled.p`
 const NormalDiv = styled.div`
     display: flex;
     display: "";
-
     @media screen and (max-width:767px){
         display: none;
     }
 `
 const MobileDiv = styled.div`
     display: none;
-
     @media screen and (max-width:767px){
         display: flex;
     }

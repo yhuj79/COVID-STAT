@@ -13,7 +13,6 @@ const StyledDiv = styled.div`
     font-weight: bold;
     margin: 0 0 -10px;
     display: none;
-
     @media screen and (max-width: 767px) {
         display: block;
     }

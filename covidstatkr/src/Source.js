@@ -17,13 +17,11 @@ function Source() {
 }
 const SourceDiv = styled.div`
     display: flex;
-
     & > a > img {
         width: 200px;
         margin: 30px 100px 30px;
         border-radius: 10px;
         border: 3px solid #E4E4E4;
-
         @media screen and (max-width:767px) {
             width: 120px;
             margin: 12px;
