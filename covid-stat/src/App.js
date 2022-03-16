@@ -5,11 +5,12 @@ import axios from 'axios';
 import moment from 'moment';
 
 import Loader from './Loader';
-import Header from './Header';
+import HeaderTab from './HeaderTab';
 import DecideDaily from './DecideDaily';
 import DeathDaily from './DeathDaily';
 import DecideCumulative from './DecideCumulative';
 import DeathCumulative from './DeathCumulative';
+import TextMobile from './TextMobile';
 import Source from './Source';
 
 // date
@@ -48,13 +49,14 @@ function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div>
-        <Header />
+        <HeaderTab />
         <Routes>
           <Route exact path="/" element={<DecideDaily stat={stat} />} />
           <Route path="/deathdaily" element={<DeathDaily stat={stat} />} />
           <Route path="/decidecumulative" element={<DecideCumulative stat={stat} />} />
           <Route path="/deathcumulative" element={<DeathCumulative stat={stat} />} />
         </Routes>
+        <TextMobile />
         <Source />
       </div>
     </Router>
