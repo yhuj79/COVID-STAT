@@ -1,11 +1,8 @@
 import React from 'react';
-import './Chart.css';
+import styled from 'styled-components';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
-import TextUpdate from './TextUpdate';
-
 Chart.register(...registerables);
-Chart.defaults.color = "#000";
 
 function DeathDaily({ stat }) {
 
@@ -25,10 +22,9 @@ function DeathDaily({ stat }) {
             {
                 type: 'bar',
                 label: '일일 사망자',
-                backgroundColor: 'rgba(76,76,76,0.7)',
-                hoverBackgroundColor: "rgba(76,76,76,1)",
+                backgroundColor: '#4C4C4C',
                 borderWidth: 3,
-                borderColor: 'rgba(76,76,76,1)',
+                borderColor: '#828282',
                 borderRadius: 15,
                 data: [
                     cnt(13), cnt(12), cnt(11), cnt(10), cnt(9), cnt(8), cnt(7),
@@ -51,33 +47,58 @@ function DeathDaily({ stat }) {
             }
         },
         scales: { // X , Y
-            xAxes: {
-                grid: {
-                    display: false,
-                },
-            },
             yAxes: {
                 ticks: {
-                    beginAtZero: true
+                    color: "#000",
+                },
+            },
+            xAxes: {
+                ticks: {
+                    color: "#000",
+                },
+                grid: {
+                    display: false,
                 },
             }
         }
     }
 
     return (
-        <div className="chart_div">
-            <p className="chart_title">
-                {stat[0].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 신규 사망자
-                <span className="chart_titlespan"> {cnt(0).toLocaleString('en')}</span>명
-            </p>
+        <StyledDiv>
+            <TodayTitle>
+                {stat[0].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 사망자
+                <span> {cnt(0).toLocaleString('en')}</span>명
+            </TodayTitle>
             <Bar type="bar"
                 data={data}
                 width={300}
                 height={100}
                 options={options}
             />
-            <TextUpdate />
-        </div>
+        </StyledDiv>
     );
 }
+const TodayTitle = styled.p`
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 70px;
+
+    & > span {
+        font-size: 25px;
+        color: red;
+    }
+`
+const StyledDiv = styled.div`
+    background-color: #F4F4F4;
+    width: 1200px;
+    margin: auto;
+    margin-top: -3px;
+    padding: 0 30px 30px;
+    border: 3px solid #E4E4E4;
+    border-radius: 15px;
+
+    @media screen and (max-width:767px) {
+        width: 99%;
+    }
+`
 export default DeathDaily;
