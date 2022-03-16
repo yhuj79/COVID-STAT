@@ -23,11 +23,6 @@ const SourceDiv = styled.div`
         margin: 30px 100px 30px;
         border-radius: 10px;
         border: 3px solid #E4E4E4;
-
-        @media screen and (max-width:767px) {
-            width: 120px;
-            margin: 12px;
-        }
     }
     & > a > img:hover {
         border: 3px solid #C6C6C6;
