@@ -3,11 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 function Header() {
-<<<<<<< HEAD:covidstatkr/src/Header.js
     const NormalStyle = ({ isActive }) =>
-=======
-    const NavStyle = ({ isActive }) =>
->>>>>>> cd580a887cb0f95dd9c4fb71dfee7b97c2105f87:covid-stat/src/Header.js
     ({
         fontFamily: 'Sunflower',
         textDecoration: 'none',
@@ -20,7 +16,6 @@ function Header() {
         borderTopLeftRadius: '10px',
         borderTopRightRadius: '10px',
     })
-<<<<<<< HEAD:covidstatkr/src/Header.js
     const MobileStyle = ({ isActive }) =>
     ({
         fontFamily: 'Sunflower',
@@ -50,18 +45,6 @@ function Header() {
                 <NavLink to="/decidecumulative" style={MobileStyle}>누적 확진</NavLink>
                 <NavLink to="/deathcumulative" style={MobileStyle}>누적 사망</NavLink>
             </MobileDiv>
-=======
-
-    return (
-        <div>
-            <Title>코로나 바이러스(COVID-19) 현황판</Title>
-            <StyledDiv>
-                <NavLink to="/" style={NavStyle}>확진 추이</NavLink>
-                <NavLink to="/deathDaily" style={NavStyle}>사망 추이</NavLink>
-                <NavLink to="/decidecumulative" style={NavStyle}>누적 확진</NavLink>
-                <NavLink to="/deathcumulative" style={NavStyle}>누적 사망</NavLink>
-            </StyledDiv>
->>>>>>> cd580a887cb0f95dd9c4fb71dfee7b97c2105f87:covid-stat/src/Header.js
         </div>
     );
 }
@@ -74,7 +57,6 @@ const Title = styled.p`
     color: #815A5A;
     margin: auto auto 30px;
     padding: 40px;
-<<<<<<< HEAD:covidstatkr/src/Header.js
     @media screen and (min-width:768px) and (max-width: 1023px) {
         font-size: 50px;
     }
@@ -96,10 +78,5 @@ const MobileDiv = styled.div`
     @media screen and (max-width:767px){
         display: flex;
     }
-=======
-`
-const StyledDiv = styled.div`
-    display: flex;
->>>>>>> cd580a887cb0f95dd9c4fb71dfee7b97c2105f87:covid-stat/src/Header.js
 `
 export default Header;

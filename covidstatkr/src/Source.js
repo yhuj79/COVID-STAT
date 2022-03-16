@@ -22,13 +22,10 @@ const SourceDiv = styled.div`
         margin: 30px 100px 30px;
         border-radius: 10px;
         border: 3px solid #E4E4E4;
-<<<<<<< HEAD:covidstatkr/src/Source.js
         @media screen and (max-width:767px) {
             width: 120px;
             margin: 12px;
         }
-=======
->>>>>>> cd580a887cb0f95dd9c4fb71dfee7b97c2105f87:covid-stat/src/Source.js
     }
     & > a > img:hover {
         border: 3px solid #C6C6C6;

@@ -1,8 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import './Chart.css';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
+import TextUpdate from './TextUpdate';
+
 Chart.register(...registerables);
+Chart.defaults.color = "#000";
 
 function DecideCumulative({ stat }) {
 
@@ -20,23 +23,20 @@ function DecideCumulative({ stat }) {
         ],
         datasets: [
             {
-                type: 'bar',
+                type: 'line',
                 label: '누적',
-                backgroundColor: '#99004C',
-                borderWidth: 3,
+                backgroundColor: 'rgba(153,0,76,0.3)',
                 borderColor: '#BD2470',
-                borderRadius: 15,
+                fill: true,
                 data: [
                     cnt(13), cnt(12), cnt(11), cnt(10), cnt(9), cnt(8), cnt(7),
                     cnt(6), cnt(5), cnt(4), cnt(3), cnt(2), cnt(1), cnt(0)
                 ],
-
             },
         ],
     };
 
     const options = {
-        maxBarThickness: 40, // bar 세로
         plugins: {
             legend: { // 범례
                 display: false,
@@ -45,60 +45,23 @@ function DecideCumulative({ stat }) {
                 padding: 15,
                 bodySpacing: 5,
             }
-        },
-        scales: {
-            yAxes: {
-                ticks: {
-                    color: "#000",
-                },
-            },
-            xAxes: {
-                ticks: {
-                    color: "#000",
-                },
-                grid: {
-                    display: false,
-                },
-            }
         }
     }
 
     return (
-        <StyledDiv>
-            <TodayTitle>
+        <div className="chart_div">
+            <p className="chart_title">
                 {stat[0].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 누적 확진자
-                <span> {cnt(0).toLocaleString('en')}</span>명
-            </TodayTitle>
+                <span className="chart_titlespan"> {cnt(0).toLocaleString('en')}</span>명
+            </p>
             <Bar type="bar"
                 data={data}
                 width={300}
                 height={100}
                 options={options}
             />
-        </StyledDiv>
+            <TextUpdate />
+        </div>
     );
 }
-const TodayTitle = styled.p`
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 70px;
-
-    & > span {
-        font-size: 25px;
-        color: red;
-    }
-`
-const StyledDiv = styled.div`
-    background-color: #F4F4F4;
-    width: 1200px;
-    margin: auto;
-    margin-top: -3px;
-    padding: 0 30px 30px;
-    border: 3px solid #E4E4E4;
-    border-radius: 15px;
-
-    @media screen and (max-width:767px) {
-        width: 99%;
-    }
-`
 export default DecideCumulative;

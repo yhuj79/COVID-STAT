@@ -10,6 +10,7 @@ import DecideDaily from './DecideDaily';
 import DeathDaily from './DeathDaily';
 import DecideCumulative from './DecideCumulative';
 import DeathCumulative from './DeathCumulative';
+import TextMobile from './TextMobile';
 import Source from './Source';
 
 // date
@@ -55,6 +56,7 @@ function App() {
           <Route path="/decidecumulative" element={<DecideCumulative stat={stat} />} />
           <Route path="/deathcumulative" element={<DeathCumulative stat={stat} />} />
         </Routes>
+        <TextMobile />
         <Source />
       </div>
     </Router>
