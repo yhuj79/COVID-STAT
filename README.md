@@ -1,4 +1,4 @@
-## COVID-STAT
+### COVID-STAT
 
 Created with React
 
