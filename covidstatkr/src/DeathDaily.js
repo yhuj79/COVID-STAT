@@ -13,7 +13,7 @@ function DeathDaily({ stat }) {
         return stat[d].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1.$2');
     }
     function cnt(d) {
-        return stat[d].deathCnt - stat[d + 1].deathCnt;
+        return stat[d]?.deathCnt - stat[d + 1]?.deathCnt;
     }
 
     const data = {

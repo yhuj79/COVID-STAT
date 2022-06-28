@@ -13,7 +13,7 @@ function DecideDaily({ stat }) {
         return stat[d].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1.$2');
     }
     function cnt(d) {
-        return stat[d].decideCnt - stat[d + 1].decideCnt;
+        return stat[d]?.decideCnt - stat[d + 1]?.decideCnt;
     }
 
     const data = {

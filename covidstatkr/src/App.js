@@ -27,7 +27,7 @@ function App() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
+        const response = await axios?.get(
           `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=${serviceKey}&pageNo=1&numOfRows=10&startCreateDt=${termB}&endCreateDt=${termA}`,
         )
         setStat(response.data.response.body.items.item);
