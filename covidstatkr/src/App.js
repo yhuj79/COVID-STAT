@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import moment from "moment";
 import Loader from "./Loader";
 import Header from "./Header";
 import DecideDaily from "./DecideDaily";
@@ -16,27 +15,19 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [stat, setStat] = useState(null);
 
-  // date
-  const format = "YYYYMMDD";
-  const termA = moment().format(format);
-  const termB = moment().subtract(15, "days").format(format);
-
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios?.get(
-          `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=${process.env.REACT_APP_API_KEY}&pageNo=1&numOfRows=10&startCreateDt=${termB}&endCreateDt=${termA}`
-        );
-        setStat(res.data.response.body.items.item);
-        console.log(res.data.response.body.items.item);
+        const res = await axios.get("http://localhost:5050/api/xml");
+        console.log(res.data);
       } catch (e) {
         console.log(e);
       }
       setLoading(false);
     };
     fetchData();
-  }, [termA, termB]);
+  }, []);
 
   if (loading) {
     return <Loader />;
