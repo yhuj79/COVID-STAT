@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
-
 import Loader from "./Loader";
 import Header from "./Header";
 import DecideDaily from "./DecideDaily";
@@ -13,14 +12,14 @@ import DeathCumulative from "./DeathCumulative";
 import TextMobile from "./TextMobile";
 import Source from "./Source";
 
-// date
-const format = "YYYYMMDD";
-const termA = moment().format(format);
-const termB = moment().subtract(15, "days").format(format);
-
 function App() {
-  const [stat, setStat] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [stat, setStat] = useState(null);
+
+  // date
+  const format = "YYYYMMDD";
+  const termA = moment().format(format);
+  const termB = moment().subtract(15, "days").format(format);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +36,7 @@ function App() {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [termA, termB]);
 
   if (loading) {
     return <Loader />;
@@ -50,7 +49,7 @@ function App() {
     <Router basename={process.env.PUBLIC_URL}>
       <div>
         <Header />
-        <Routes>
+        {/* <Routes>
           <Route exact path="/" element={<DecideDaily stat={stat} />} />
           <Route path="/deathdaily" element={<DeathDaily stat={stat} />} />
           <Route
@@ -61,7 +60,7 @@ function App() {
             path="/deathcumulative"
             element={<DeathCumulative stat={stat} />}
           />
-        </Routes>
+        </Routes> */}
         <TextMobile />
         <Source />
       </div>
