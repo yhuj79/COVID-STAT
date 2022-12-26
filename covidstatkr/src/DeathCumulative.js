@@ -10,10 +10,10 @@ Chart.defaults.color = "#000";
 function DeathCumulative({ stat }) {
 
     function date(d) {
-        return stat[d].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1.$2');
+        return Number(stat[d].stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1.$2'));
     }
     function cnt(d) {
-        return stat[d]?.deathCnt;
+        return Number(stat[d].deathCnt._text);
     }
 
     const data = {
@@ -52,7 +52,7 @@ function DeathCumulative({ stat }) {
     return (
         <div className="chart_div">
             <p className="chart_title">
-                {stat[0].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 누적 사망자
+                {stat[0].stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 누적 사망자
                 <span className="chart_titlespan"> {cnt(0).toLocaleString('en')}</span>명
             </p>
             <Bar type="bar"

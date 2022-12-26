@@ -10,10 +10,10 @@ Chart.defaults.color = "#000";
 function DecideDaily({ stat }) {
 
     function date(d) {
-        return stat[d].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1.$2');
+        return Number(stat[d].stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1.$2'));
     }
     function cnt(d) {
-        return stat[d]?.decideCnt - stat[d + 1]?.decideCnt;
+        return Number(stat[d].decideCnt._text - stat[d + 1].decideCnt._text);
     }
 
     const data = {
@@ -67,7 +67,7 @@ function DecideDaily({ stat }) {
     return (
         <div className="chart_div">
             <p className="chart_title">
-                {stat[0].stateDt.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 신규 확진자
+                {stat[0].stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 신규 확진자
                 <span className="chart_titlespan"> {cnt(0).toLocaleString('en')}</span>명
             </p>
             <Bar type="bar"

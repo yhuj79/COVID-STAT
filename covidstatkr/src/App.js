@@ -20,7 +20,7 @@ function App() {
       setLoading(true);
       try {
         const res = await axios.get("http://localhost:5050/api/xml");
-        console.log(res.data);
+        setStat(res.data.response.body.items.item);
       } catch (e) {
         console.log(e);
       }
@@ -40,7 +40,7 @@ function App() {
     <Router>
       <div>
         <Header />
-        {/* <Routes>
+        <Routes>
           <Route exact path="/" element={<DecideDaily stat={stat} />} />
           <Route path="/deathdaily" element={<DeathDaily stat={stat} />} />
           <Route
@@ -51,7 +51,7 @@ function App() {
             path="/deathcumulative"
             element={<DeathCumulative stat={stat} />}
           />
-        </Routes> */}
+        </Routes>
         <TextMobile />
         <Source />
       </div>

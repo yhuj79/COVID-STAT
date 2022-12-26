@@ -3,7 +3,7 @@ const app = express();
 require('dotenv').config();
 const cors = require("cors");
 const request = require("request");
-const converter = require("xml-js");
+const convert = require("xml-js");
 const port = 5050;
 
 const moment = require("moment");
@@ -21,7 +21,7 @@ app.get("/api/xml", (req, res) => {
       method: "GET",
     },
     (error, response, body) => {
-      const xmlToJson = converter.xml2json(body);
+      const xmlToJson = convert.xml2json(body, {compact: true, space: 4});
       res.send(xmlToJson);
     }
   );
