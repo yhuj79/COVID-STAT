@@ -19,7 +19,7 @@ function App() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:5050/api/xml");
+        const res = await axios.get("https://covidstatkr.herokuapp.com/api/xml");
         setStat(res.data.response.body.items.item);
         console.log(res.data.response.body.items.item);
       } catch (e) {
