@@ -4,7 +4,7 @@ import styled from 'styled-components';
 function TextUpdate() {
     return (
         <StyledDiv>
-            <p>매일 09시 경 업데이트</p>
+            <p>매일 00~01시 기준</p>
         </StyledDiv>
     );
 }

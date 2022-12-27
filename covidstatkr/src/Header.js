@@ -32,7 +32,7 @@ function Header() {
 
     return (
         <div>
-            <Title>코로나 바이러스 현황판 2</Title>
+            <Title>코로나 바이러스 현황판</Title>
             <NormalDiv>
                 <NavLink to="/" style={NormalStyle}>확진 추이</NavLink>
                 <NavLink to="/deathDaily" style={NormalStyle}>사망 추이</NavLink>

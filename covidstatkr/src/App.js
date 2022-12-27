@@ -21,7 +21,6 @@ function App() {
       try {
         const res = await axios.get(process.env.REACT_APP_ADDRESS_KEY);
         setStat(res.data.response.body.items.item);
-        console.log(res.data.response.body.items.item);
       } catch (e) {
         console.log(e);
       }
