@@ -4,20 +4,19 @@ require("dotenv").config();
 const cors = require("cors");
 const request = require("request");
 const convert = require("xml-js");
-const PORT = process.env.PORT || 5050;
-
 const moment = require("moment");
-const format = "YYYYMMDD";
-const termA = moment().format(format);
-const termB = moment().subtract(15, "days").format(format);
-const url = `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=${process.env.REACT_APP_API_KEY}&pageNo=1&numOfRows=10&startCreateDt=${termB}&endCreateDt=${termA}`;
+const PORT = process.env.PORT || 5050;
 
 app.use(cors());
 
 app.get("/api/xml", (req, res) => {
+  const format = "YYYYMMDD";
+  const termA = moment().format(format);
+  const termB = moment().subtract(15, "days").format(format);
+
   request(
     {
-      url: url,
+      url: `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=${process.env.REACT_APP_API_KEY}&pageNo=1&numOfRows=10&startCreateDt=${termB}&endCreateDt=${termA}`,
       method: "GET",
     },
     (error, response, body) => {
