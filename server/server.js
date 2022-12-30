@@ -4,15 +4,15 @@ require("dotenv").config();
 const cors = require("cors");
 const request = require("request");
 const convert = require("xml-js");
-const moment = require("moment");
+const moment = require("moment-timezone");
 const PORT = process.env.PORT || 5050;
 
 app.use(cors());
 
 app.get("/api/xml", (req, res) => {
   const format = "YYYYMMDD";
-  const termA = moment().format(format);
-  const termB = moment().subtract(15, "days").format(format);
+  const termA = moment().tz("Asia/Seoul").format(format);
+  const termB = moment().tz("Asia/Seoul").subtract(15, "days").format(format);
 
   request(
     {
