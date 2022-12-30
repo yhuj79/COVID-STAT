@@ -18,13 +18,13 @@ function DecideDaily({ stat }) {
 
     const data = {
         labels: [
-            date(13), date(12), date(11), date(10), date(9), date(8), date(7),
-            date(6), date(5), date(4), date(3), date(2), date(1), date(0)
+            date(14), date(13), date(12), date(11), date(10), date(9), date(8),
+            date(7), date(6), date(5), date(4), date(3), date(2), date(1)
         ],
         datasets: [
             {
                 type: 'bar',
-                label: '일일 확진자',
+                label: ' 일일 확진자',
                 backgroundColor: 'rgba(255,205,18,0.6)',
                 hoverBackgroundColor: "rgba(255,205,18,1)",
                 borderWidth: 3,
@@ -67,7 +67,7 @@ function DecideDaily({ stat }) {
     return (
         <div className="chart_div">
             <p className="chart_title">
-                {stat[0].stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 신규 확진자
+                {stat[1].stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 신규 확진자
                 <span className="chart_titlespan"> {cnt(0).toLocaleString('en')}</span>명
             </p>
             <Bar type="bar"

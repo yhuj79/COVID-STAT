@@ -18,13 +18,13 @@ function DeathCumulative({ stat }) {
 
     const data = {
         labels: [
-            date(13), date(12), date(11), date(10), date(9), date(8), date(7),
-            date(6), date(5), date(4), date(3), date(2), date(1), date(0)
+            date(14), date(13), date(12), date(11), date(10), date(9), date(8),
+            date(7), date(6), date(5), date(4), date(3), date(2), date(1)
         ],
         datasets: [
             {
                 type: 'line',
-                label: '누적',
+                label: ' 누적',
                 backgroundColor: 'rgba(0,34,102,0.3)',
                 borderColor: '#24468A',
                 fill: true,
@@ -52,7 +52,7 @@ function DeathCumulative({ stat }) {
     return (
         <div className="chart_div">
             <p className="chart_title">
-                {stat[0].stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 누적 사망자
+                {stat[1].stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 누적 사망자
                 <span className="chart_titlespan"> {cnt(0).toLocaleString('en')}</span>명
             </p>
             <Bar type="bar"
