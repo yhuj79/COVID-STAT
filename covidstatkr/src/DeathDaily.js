@@ -10,10 +10,10 @@ Chart.defaults.color = "#000";
 function DeathDaily({ stat }) {
 
     function date(d) {
-        return stat[d].stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1.$2');
+        return stat[d]?.stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1.$2');
     }
     function cnt(d) {
-        return Number(stat[d].deathCnt._text - stat[d + 1].deathCnt._text);
+        return Number(stat[d]?.deathCnt._text - stat[d + 1]?.deathCnt._text);
     }
 
     const data = {
@@ -67,7 +67,7 @@ function DeathDaily({ stat }) {
     return (
         <div className="chart_div">
             <p className="chart_title">
-                {stat[1].stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 신규 사망자
+                {stat[1]?.stateDt._text.toString().substr(4).replace(/(\d{2})(\d{2})/g, '$1월 $2일')} 신규 사망자
                 <span className="chart_titlespan"> {cnt(0).toLocaleString('en')}</span>명
             </p>
             <Bar type="bar"
