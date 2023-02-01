@@ -11,7 +11,7 @@
 
 <div>
     <img src="https://raw.githubusercontent.com/yhuj79/COVID-STAT/master/thumbnail/1.PNG" width="400">
-    <img src="https://raw.githubusercontent.com/yhuj79/COVID-STAT/master/thumbnail/2.PNG" width="395">
+    <img src="https://raw.githubusercontent.com/yhuj79/COVID-STAT/master/thumbnail/2.PNG" width="400">
 </div>
 
 ### 제작 기간
