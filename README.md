@@ -1,7 +1,8 @@
 <img src="https://raw.githubusercontent.com/yhuj79/COVID-STAT/master/thumbnail/thumbnail.png" width="600">
 
 국내 코로나 바이러스 현황판 (일일 및 누적 확진, 사망)
-#### :ballot_box_with_check: <a target="_blank" rel="noopener noreferrer" href="https://covidstatkr.vercel.app">Vercel Deploy Link</a>
+
+ <a target="_blank" rel="noopener noreferrer" href="https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000002849">API 폐기됨 (공공데이터활용지원센터_보건복지부 코로나19 감염 현황)</a>
 
 ## Built With
 
@@ -34,6 +35,6 @@
 
 ## 참조
 
-[https://yhuj79.github.io/blog/230104/](https://yhuj79.github.io/blog/230104/)
+[https://yhuj79.github.io/React/230104](https://yhuj79.github.io/React/230104)
 
-[https://yhuj79.github.io/blog/230115/](https://yhuj79.github.io/blog/230115/)
+[https://yhuj79.github.io/React/230115](https://yhuj79.github.io/React/230115)
